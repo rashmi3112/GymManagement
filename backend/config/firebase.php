@@ -12,7 +12,7 @@ if (file_exists(__DIR__ . '/../.env')) {
             $value = trim($value);
             putenv("{$name}={$value}");
             $_ENV[$name] = $value;
-            $_SERVER[$name] = $value1;
+            $_SERVER[$name] = $value;
         }
     }
 }
