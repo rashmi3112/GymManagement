@@ -3,20 +3,20 @@
 
 // Setup basic request routing
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-$uri = str_replace('/backend/index.php', '', $uri); // Clean up subfolders if run in subdirectory
+    $uri = str_replace('/api/index.php', '', $uri); // Clean up subfolders if run in subdirectory
 $uri = trim($uri, '/');
 
 $parts = explode('/', $uri);
 
-// We expect path to start with api/
-if (count($parts) < 2 || $parts[0] !== 'api') {
-    http_response_code(404);
-    echo json_encode([
-        'status' => 'error',
-        'message' => 'API endpoint not found. Path must begin with /api/'
-    ]);
-    exit;
-}
+    // If no specific resource, return 404
+    if (empty($parts[1])) {
+        http_response_code(404);
+        echo json_encode([
+            'status' => 'error',
+            'message' => 'API endpoint not specified.'
+        ]);
+        exit;
+    }
 
 $resource = $parts[1]; // members, plans, attendance, etc.
 $id = $parts[2] ?? null;
