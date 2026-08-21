@@ -120,7 +120,7 @@ class Firestore {
         
         // Setup authorization if Bearer token is provided
         if (isset($_SERVER['HTTP_AUTHORIZATION'])) {
-            $headers[] = $_SERVER['HTTP_AUTHORIZATION'];
+            $headers[] = 'Authorization: ' . $_SERVER['HTTP_AUTHORIZATION'];
         }
 
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
