@@ -1,21 +1,23 @@
 {
   "version": 2,
   "functions": {
-    "backend/index.php": {
+    "api/index.php": {
       "runtime": "vercel-php@0.6.0"
     }
   },
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "/backend/index.php"
-    },
-    {
-      "handle": "filesystem"
+      "dest": "/api/index.php"
     },
     {
       "src": "/(.*)",
       "dest": "/frontend/dist/$1"
     }
-  ]
+  ],
+  "build": {
+    "env": {
+      "FIREBASE_PROJECT_ID": "@firebase_project_id"
+    }
+  }
 }
