@@ -50,11 +50,14 @@ $_SERVER['PATH_INFO'] = '/' . $subPath;
 // Route request to the correct script file inside a try/catch to return JSON on errors
 try {
     require_once __DIR__ . '/' . $routeMap[$resource];
-} catch (Exception $e) {
+} catch (Throwable $e) {
     http_response_code(500);
     echo json_encode([
         'status' => 'error',
-        'message' => $e->getMessage()
+        'message' => $e->getMessage(),
+        'file' => $e->getFile(),
+        'line' => $e->getLine(),
+        'trace' => $e->getTraceAsString()
     ]);
     exit;
 }
