@@ -13,7 +13,10 @@
       "dest": "/api/index.php"
     },
     {
-      "src": "/((?!api/).*)",
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
       "dest": "/index.html"
     }
   ]
