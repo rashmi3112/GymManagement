@@ -1,6 +1,10 @@
 # FitCore — Gym Management Web Application
 
+**🟢 Live Demo:** [https://fit-core-snowy.vercel.app/](https://fit-core-snowy.vercel.app/)
+
 A full-featured Gym Management Web Application built with **React JS (Vite)** on the frontend, a **PHP REST API** backend, and **Firebase (Firestore & Auth)** as the database.
+
+*Note for Portfolio Reviewers: The original backend was written in PHP (included in the `api/` folder) which is perfect for traditional shared hosting. For the Vercel live demo, the app uses a serverless integration directly with the Firebase SDK.*
 
 ---
 
