@@ -2,7 +2,7 @@
 import axios from 'axios';
 import { auth } from './firebase';
 
-const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api';
+const API_BASE = import.meta.env.VITE_API_BASE_URL || 'https://fitcore-api.infinityfreeapp.com';
 
 const api = axios.create({
   baseURL: API_BASE,
